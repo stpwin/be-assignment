@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package user;
+
+message UserSummary {
+  int32 male = 1;
+  int32 female = 2;
+  string ageRange = 3;
+  map<string, int32> hair = 4;
+  map<string, string> addressUser = 5;
+}
+
+message UserSummaryRequest {
+
+}
+
+message UserSummaryResponse {
+  map<string, UserSummary> result = 1;
+}
+
+service User {
+  rpc UserSummary(UserSummaryRequest) returns (UserSummaryResponse);
+}

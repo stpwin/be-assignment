@@ -6,19 +6,25 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/index.js",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "dev-grpc": "nodemon src/index-grpc.ts"
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.10.7",
     "axios": "^1.6.8",
     "express": "^4.19.2",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
+    "@types/google-protobuf": "^3.15.12",
     "@types/lodash": "^4.17.1",
     "@types/node": "^20.12.8",
+    "grpc-tools": "^1.12.4",
+    "grpc_tools_node_protoc_ts": "^5.3.3",
     "nodemon": "^3.1.0",
     "ts-node": "^10.9.2",
+    "ts-proto": "^1.174.0",
     "typescript": "^5.4.5"
   }
 }

@@ -15,7 +15,7 @@ type ResponseType = {
   addressUser: Record<string, string>,
 }
 
-app.get("/", async (req: Request, res: Response) => {
+export const getUserSummaryRest = async() => {
   const result = await axios.get(url)
 
   const resultGrouped = _groupBy(result.data.users, (item) => item.company.department)
@@ -56,9 +56,16 @@ app.get("/", async (req: Request, res: Response) => {
     responseResult[key] = transformed
   })
 
+  return responseResult
+}
+
+app.get("/", async (req: Request, res: Response) => {
+  const responseResult = await getUserSummaryRest()
+
   res.json(responseResult)
 });
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
+
